@@ -93,7 +93,7 @@ while True:
     canvas.after(1000)
     canvas.delete('all')
     canvas.bind('<Button-1>',score)
-    score()
+
     
     
 
