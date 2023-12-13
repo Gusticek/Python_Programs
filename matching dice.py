@@ -73,10 +73,13 @@ def create_dice():
         canvas.create_oval(y+200,x+200,y+275,x+275,fill="black")
         canvas.create_oval(y+25,x+112.5,y+100,x+187.5,fill="black")
         canvas.create_oval(y+200,x+112.5,y+275,x+187.5,fill="black")
-    time.sleep(1)
+
 
 while True:
     create_dice()
+    canvas.update()
+    canvas.after(2000)
+    canvas.delete('all')
 
 
     
