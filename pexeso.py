@@ -11,7 +11,6 @@ canvas.pack()
 
 list1 = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]
 random.shuffle(list1)
-# print(list1)
 stvorce = []
 coords = []
 last_square = 0
@@ -33,17 +32,15 @@ def pexeso():
 def click(coordinates):
     global counter,last_square,last_square1,heavy_counter
     for i in range(16):
+        square = i
+
         if coordinates.x in range(coords[i][0],coords[i][0]+100) and coordinates.y in range(coords[i][1],coords[i][1]+100):
-#             print(i)
             canvas.create_text(coords[i][0]+50,coords[i][1]+50,text=list1[i])
-#             print(counter)
-#             print(counter%2)
             if  counter%2 == 1:
                     if list1[square] == list1[last_square]:
                         pass
                     else:
-                        canvas.after(1000,flip(i,last_square))
-            print(last_square)
+                        canvas.after(500, lambda x=i, y=last_square: flip(x, y))
             last_square = i
             counter+=1
 def flip(x,y):
@@ -53,10 +50,6 @@ def flip(x,y):
 
 
 pexeso()
-print(coords)
 canvas.bind('<Button-1>',click)
-
-
-
 
 window.mainloop()
